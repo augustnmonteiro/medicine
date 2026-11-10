@@ -100,12 +100,12 @@ female:[
 'Após a ovulação, a parede do folículo colapsa e forma o corpo lúteo, com pregas profundas. As células da granulosa e da teca interna se diferenciam em células luteínicas, que secretam progesterona e estrogênios.'
 ]};
 const deck=[...questions.male.map((item,sourceIndex)=>({...item,system:'male',sourceIndex})),...questions.female.map((item,sourceIndex)=>({...item,system:'female',sourceIndex}))];
-const STORAGE_KEY='quiz-histologia-mixed-v8';
+const STORAGE_KEY='quiz-histologia-mixed-v9';
 const shuffle=arr=>{const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 function freshSession(){return {queue:shuffle(deck.map((_,i)=>i)),pos:0,wrong:[],correct:[],answered:[]}}
 function readSession(){try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY));if(saved?.queue&&Array.isArray(saved.queue))return saved}catch(e){}return freshSession()}
 let session=readSession(),chosen=null,checked=false;
-const $=s=>document.querySelector(s);const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=s=>document.querySelector(s);const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const organAt={
 male:['testis','testis','epididymis','testis','epididymis','testis','testis','testis','testis','testis','testis','testis','testis','epididymis','epididymis','epididymis'],
 female:['utero','utero','ovario','ovario','utero','utero','ovario','ovario','utero','ovario','ovario','ovario','ovario','ovario','utero','utero','utero','ovario','ovario','vagina','utero','utero','ovario']
@@ -117,7 +117,15 @@ const organFacts={
  ovario:'Órgão: ovário. Possui epitélio superficial, túnica albugínea, córtex com estroma e folículos em diferentes estágios, e medula vascularizada. Folículos incluem oócito, zona pelúcida, células da granulosa, membrana basal e tecas; após a ovulação pode haver corpo lúteo e, depois, corpo albicans.',
  vagina:'Órgão: vagina. A parede apresenta mucosa com epitélio estratificado pavimentoso não queratinizado e lâmina própria, camada muscular lisa e adventícia conjuntiva. Há pregas vaginais; não há glândulas na mucosa. O epitélio pode acumular glicogênio sob influência hormonal.'
 };
-function organExplanation(item){return organFacts[organAt[item.system][item.sourceIndex]]}
+function organExplanation(item){
+ const key=organAt[item.system]?.[item.sourceIndex];
+ if(organFacts[key])return organFacts[key];
+ const answer=String(item.o?.[item.a]||'').toLowerCase(),prompt=String(item.q||'').toLowerCase();
+ if(item.system==='male')return /epidídimo|ducto eferente|cones vasculosi|estereocílios/.test(answer)?organFacts.epididymis:organFacts.testis;
+ if(/vagina/.test(answer)||/vagina/.test(prompt))return organFacts.vagina;
+ if(/folículo|folicular|luteínic|oócito|teca|granulosa|corpo lúteo|corpo albicans|zona pelúcida/.test(answer))return organFacts.ovario;
+ return organFacts.utero;
+}
 function howToIdentify(item){
  const answer=item.o[item.a].toLowerCase(), prompt=item.q.toLowerCase();
  if(item.system==='male'){
