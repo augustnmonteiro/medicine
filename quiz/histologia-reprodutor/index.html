@@ -14,7 +14,6 @@
 const questions={
 male:[
 {img:'file-5b466936288c6.webp',q:'Identifique as células indicadas pelas setas.',o:['Células de Sertoli','Espermatócitos secundários','Espermatogônias','Espermatócitos primários','Espermátides iniciais'],a:2},
-{img:'file-5b4672d3da356.webp',q:'Qual órgão ocupa o campo microscópico?',o:['Epidídimo','Testículo','Próstata','Vesícula seminal'],a:3},
 {img:'file-5b46782a4c583.webp',q:'Identifique as células indicadas pelas setas.',o:['Espermatozoides','Espermatócitos primários','Espermatogônias','Espermátides tardias','Espermátides iniciais'],a:3},
 {img:'file-5b46689d7411f.webp',q:'Qual estrutura ocupa o campo microscópico?',o:['Corpo do epidídimo','Mediastino testicular','Próstata','Cabeça do epidídimo','Testículo'],a:3},
 {img:'file-5b4666445a6a4.webp',q:'Identifique as células indicadas pelas setas.',o:['Gonócitos','Espermátides','Células de Sertoli','Espermatogônias','Células intersticiais de Leydig'],a:4},
@@ -27,6 +26,9 @@ male:[
 {img:'file-5b4669c37842e.webp',q:'Identifique as células indicadas pelas setas.',o:['Células de Sertoli','Espermatócitos secundários','Espermatócitos primários','Espermatogônias','Espermátides iniciais'],a:2},
 {img:'file-5b466c28b0f95.webp',q:'Identifique a estrutura indicada pelas setas.',o:['Uretra','Plexo pampiniforme','Porções retas dos túbulos seminíferos','Ducto eferente','Rede testicular'],a:4},
 {img:'file-5b466a82e00f3.webp',q:'Identifique as células indicadas pelas setas.',o:['Células de Sertoli','Espermátides tardias','Espermatócitos primários','Espermatogônias','Espermátides iniciais'],a:4},
+{img:'file-5b466d265ceeb.webp',q:'Identifique o órgão indicado pela seta dupla.',o:['Epidídimo','Mediastino testicular','Cordão espermático','Ducto deferente','Vesícula seminal'],a:0},
+{img:'file-5b466d9a902c2.webp',q:'Qual estrutura ocupa o campo microscópico?',o:['Ducto do epidídimo','Ducto eferente','Túbulo seminífero','Uretra','Ducto deferente'],a:0},
+{img:'file-5b466f4997fc2.webp',q:'Identifique as estruturas tubulares mostradas nas imagens.',o:['Ducto do epidídimo','Ducto eferente','Uretra peniana','Ducto deferente','Corpo esponjoso'],a:0},
 ],
 female:[
 {img:'file-5b4b5a0b5ea8a.webp',q:'Qual órgão ocupa o campo microscópico?',o:['Colo do útero','Útero menstrual','Útero pré-menstrual','Útero secretor','Útero proliferativo'],a:3},
@@ -49,13 +51,13 @@ female:[
 {img:'file-5b4cae0603077.webp',q:'Identifique a camada indicada pelas setas.',o:['Teca interna','Células luteínicas da teca','Células da granulosa','Teca externa','Células luteínicas da granulosa'],a:0},
 {img:'file-5b4b55c7da7d9.webp',q:'Identifique a estrutura indicada pela seta dupla.',o:['Folículo de Graaf','Folículo primário unilaminar','Folículo secundário','Folículo atrésico','Folículo primário multilaminar'],a:4},
 {img:'file-5b4cbcb07cc5a.webp',q:'Qual órgão ocupa o campo microscópico?',o:['Vagina','Colo do útero','Útero secretor','Tuba uterina','Útero proliferativo'],a:0},
-{img:'file-5b4b5cfe17f18.webp',q:'Qual órgão ocupa o campo microscópico?',o:['Corpo lúteo','Colo do útero','Útero proliferativo','Útero secretor','Tuba uterina'],a:4},
-{img:'file-5b4b5ac9bd478.webp',q:'Identifique a estrutura indicada pelas setas.',o:['Ducto de uma glândula uterina','Glândula uterina','Artéria espiral','Pregas palmadas'],a:2}
+{img:'file-5b4b5ac9bd478.webp',q:'Identifique a estrutura indicada pelas setas.',o:['Ducto de uma glândula uterina','Glândula uterina','Artéria espiral','Pregas palmadas'],a:2},
+{img:'file-5b4caf495f1db.webp',q:'Identifique a estrutura mostrada nesta imagem.',o:['Óstio externo do colo do útero','Ampola da tuba uterina','Porção intramural da tuba uterina','Ovário','Vagina'],a:0},
+{img:'file-5b4caff74633b.webp',q:'Qual estrutura ocupa o campo microscópico?',o:['Corpo lúteo','Útero secretor','Vagina','Útero proliferativo','Tuba uterina'],a:0}
 ]};
 const explanations={
 male:[
 'As espermatogônias são células germinativas basais, pequenas e arredondadas, junto à membrana basal do túbulo seminífero. Elas se dividem por mitose e dão origem aos espermatócitos primários.',
-'A vesícula seminal tem mucosa muito pregueada, formando um lúmen irregular e labiríntico, revestido por epitélio pseudoestratificado. A parede muscular fica externamente às pregas.',
 'As espermátides tardias ficam próximas ao lúmen e têm núcleos muito alongados e escuros. Compare-as às espermátides iniciais, mais arredondadas e situadas mais perto das camadas intermediárias.',
 'A cabeça do epidídimo reúne ductos eferentes muito enovelados. Em corte, seus lúmens frequentemente têm contornos festonados pela alternância entre células altas ciliadas e células mais baixas.',
 'Localize primeiro os túbulos seminíferos; entre eles há tecido conjuntivo intersticial. As células de Leydig aparecem em grupos nesse espaço e têm função endócrina.',
@@ -68,6 +70,9 @@ male:[
 'Compare as camadas celulares do túbulo seminífero: espermatócitos primários ficam acima das espermatogônias e são maiores, com cromatina mais condensada e irregular.',
 'A rede testicular ocupa o mediastino, próximo à cápsula posterior. Reconheça canais anastomosados e use a sequência do trajeto espermático: túbulos retos → rede testicular → ductos eferentes.',
 'As espermátides iniciais são pequenas e arredondadas e ficam na região mais próxima do lúmen, antes de alongarem os núcleos durante a espermiogênese.',
+'O epidídimo é o órgão onde os espermatozoides amadurecem e são armazenados. Reconheça o ducto epididimário muito enovelado e a presença de espermatozoides em seu lúmen.',
+'O ducto do epidídimo é um tubo único, altamente enovelado, revestido por epitélio pseudoestratificado com estereocílios. Os espermatozoides podem ser vistos no lúmen.',
+'Os perfis do ducto do epidídimo são revestidos por epitélio pseudoestratificado com estereocílios e frequentemente contêm espermatozoides. Eles diferem dos ductos eferentes, com lúmens festonados.',
 ],
 female:[
 'Para orientar o útero, separe o endométrio glandular do miométrio muscular. Na fase secretora, as glândulas do endométrio tornam-se tortuosas e dilatadas após a ovulação.',
@@ -90,11 +95,12 @@ female:[
 'A teca interna fica imediatamente fora da membrana basal da granulosa. É vascularizada e produz precursores hormonais; mais externamente fica a teca externa fibrosa.',
 'No folículo primário multilaminar, as células foliculares proliferam e formam várias camadas ao redor do oócito. Ainda não há um antro amplo, que caracteriza o folículo secundário.',
 'A vagina tem mucosa com epitélio estratificado pavimentoso não queratinizado e pregas. Ao contrário de muitos órgãos, sua mucosa não possui glândulas.',
-'A tuba uterina, especialmente a ampola, tem mucosa com numerosas pregas ramificadas revestidas por epitélio colunar simples ciliado e secretor. As pregas ocupam grande parte do lúmen.',
-'As artérias espirais percorrem o endométrio funcional em trajeto sinuoso. Em cortes longitudinais aparecem como perfis vasculares separados; procure endotélio e possíveis hemácias no lúmen.'
+'As artérias espirais percorrem o endométrio funcional em trajeto sinuoso. Em cortes longitudinais aparecem como perfis vasculares separados; procure endotélio e possíveis hemácias no lúmen.',
+'O óstio externo é a abertura do canal endocervical para a vagina, na região do colo uterino. A imagem pode mostrar a junção entre o epitélio colunar simples do canal e o epitélio estratificado pavimentoso da ectocérvice.',
+'Após a ovulação, a parede do folículo colapsa e forma o corpo lúteo, com pregas profundas. As células da granulosa e da teca interna se diferenciam em células luteínicas, que secretam progesterona e estrogênios.'
 ]};
 const deck=[...questions.male.map((item,sourceIndex)=>({...item,system:'male',sourceIndex})),...questions.female.map((item,sourceIndex)=>({...item,system:'female',sourceIndex}))];
-const STORAGE_KEY='quiz-histologia-mixed-v5';
+const STORAGE_KEY='quiz-histologia-mixed-v6';
 const shuffle=arr=>{const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 function freshSession(){return {queue:shuffle(deck.map((_,i)=>i)),pos:0,wrong:[],correct:[],answered:[]}}
 function readSession(){try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY));if(saved?.queue&&Array.isArray(saved.queue))return saved}catch(e){}return freshSession()}
