@@ -107,8 +107,8 @@ function readSession(){try{const saved=JSON.parse(localStorage.getItem(STORAGE_K
 let session=readSession(),chosen=null,checked=false;
 const $=s=>document.querySelector(s);const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const organAt={
-male:['testis','testis','testis','epididymis','testis','epididymis','testis','testis','testis','testis','testis','testis','testis','testis'],
-female:['utero','utero','ovario','ovario','utero','utero','ovario','ovario','utero','ovario','ovario','ovario','ovario','ovario','utero','utero','utero','ovario','ovario','vagina','utero','utero']
+male:['testis','testis','epididymis','testis','epididymis','testis','testis','testis','testis','testis','testis','testis','testis','epididymis','epididymis','epididymis'],
+female:['utero','utero','ovario','ovario','utero','utero','ovario','ovario','utero','ovario','ovario','ovario','ovario','ovario','utero','utero','utero','ovario','ovario','vagina','utero','utero','ovario']
 };
 const organFacts={
  testis:'Órgão: testículo. Principais componentes: túnica albugínea e septos que formam lóbulos; túbulos seminíferos com células de Sertoli e linhagem germinativa; túbulos retos e rede testicular no mediastino; tecido intersticial com células de Leydig, vasos e tecido conjuntivo. Os ductos eferentes fazem a transição para o epidídimo.',
